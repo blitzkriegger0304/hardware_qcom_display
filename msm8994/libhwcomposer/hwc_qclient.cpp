@@ -226,19 +226,23 @@ static void toggleDynamicDebug(hwc_context_t* ctx, const Parcel* inParcel) {
     switch (debug_type) {
         //break is ignored for DEBUG_ALL to toggle all of them at once
         case IQService::DEBUG_ALL:
+                         FALLTHROUGH_INTENDED;
         case IQService::DEBUG_MDPCOMP:
             qhwc::MDPComp::dynamicDebug(enable);
             if (debug_type != IQService::DEBUG_ALL)
                 break;
-        FALLTHROUGH_INTENDED; case IQService::DEBUG_VSYNC:
+                         FALLTHROUGH_INTENDED;
+        case IQService::DEBUG_VSYNC:
             ctx->vstate.debug = enable;
             if (debug_type != IQService::DEBUG_ALL)
                 break;
-        FALLTHROUGH_INTENDED; case IQService::DEBUG_VD:
+                         FALLTHROUGH_INTENDED;
+        case IQService::DEBUG_VD:
             HWCVirtualVDS::dynamicDebug(enable);
             if (debug_type != IQService::DEBUG_ALL)
                 break;
-        FALLTHROUGH_INTENDED; case IQService::DEBUG_PIPE_LIFECYCLE:
+                         FALLTHROUGH_INTENDED;
+        case IQService::DEBUG_PIPE_LIFECYCLE:
             Overlay::debugPipeLifecycle(enable);
             if (debug_type != IQService::DEBUG_ALL)
                 break;
