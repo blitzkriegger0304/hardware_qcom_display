@@ -44,7 +44,7 @@ int msm_memtrack_get_memory(const struct memtrack_module *module,
     return -EINVAL;
 }
 
-static int memtrack_open(const hw_module_t* module, const char* name,
+static int memtrack_open(const hw_module_t* module __unused, const char* name,
                     hw_device_t** device)
 {
     ALOGD("%s: enter; name=%s", __FUNCTION__, name);
