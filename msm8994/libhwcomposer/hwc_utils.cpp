@@ -1075,6 +1075,7 @@ void setListStats(hwc_context_t *ctx,
             ctx->listStats[dpy].preMultipliedAlpha = true;
 
 #ifdef DYNAMIC_FPS
+        qdutils::MDPVersion& mdpHw = qdutils::MDPVersion::getInstance();
         if (!dpy && mdpHw.isDynFpsSupported() && ctx->mUseMetaDataRefreshRate){
             //dyn fps: get refreshrate from metadata
             //Support multiple refresh rates if they are same
